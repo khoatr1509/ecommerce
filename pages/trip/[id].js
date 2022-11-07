@@ -11,6 +11,7 @@ const Trip = () => {
     // console.log(arr[id - 1]);
     console.log(tr)
     return (
+        // TODO: code screen trip detail
         <div>
             <p>{tr.description}</p>
             <p>{tr.price}</p>
