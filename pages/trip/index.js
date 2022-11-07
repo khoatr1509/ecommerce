@@ -1,5 +1,6 @@
 import React from 'react'
 import data from '../../data/data';
+import classes from '../../styles/TripList.module.css'
 
 console.log({ data });
 
@@ -8,14 +9,27 @@ console.log(arr[0])
 
 function Triplist({ trips }) {
     return (
-        <>
+        <div className={classes.container}>
             {
                 arr.map((trip) => (
                     // TODO: CODE STYLING HERE
-                    <div className="">{trip.id}</div>
+                    <div key={trip.id} className={classes.table}>
+                        <img className={classes.logo} src={trip.img_url}></img>
+                        <h1 className={classes.tourName}>{trip.tour_name}</h1>
+                        <p className={classes.tourDescription}>{trip.description}</p>
+                        <div className={classes.cate}>
+                            <div className={classes.tag}>$12.11</div>
+                            <div className={classes.tag}>12k reviews</div>  
+                            <div className={classes.tag}>2 hours</div>
+                        </div>
+                        <div className={classes.btn}>
+                            <button>Add to plan</button>
+                            <button>Details</button>
+                        </div>
+                    </div>
                 ))
             }
-        </>
+        </div>
     )
 }
 

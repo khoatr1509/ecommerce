@@ -1,0 +1,80 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.container .table {
+    width: 300px;
+    height: 350px;
+    border-radius: 5px;
+    border: 1px solid #000000;
+    color: #FFFFFF;
+    margin: 10px;
+}
+
+.container .table .logo {
+   width: 100%;
+   height: 134px;
+   object-fit: fill;
+   border-radius: 5px 5px 0 0;
+}
+.container .table .tourName {
+    font-size: 18px;
+    font-weight: 700;
+    color: #000000;
+    margin: 10px 10px;
+}
+
+.container .table .tourDescription {
+    font-size: 8px;
+    font-weight: 300;
+    color: #333333;
+    margin: 5px 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.container .table .cate {
+    display: flex;
+    margin: 10px 10px;
+}
+
+.container .table .cate .tag {
+    font-size: 8px;
+    font-weight: 600;
+    padding: 5px 10px;
+    color: #000;
+    background-color: #E9FBFD;
+    border-radius: 10px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    text-align: center;
+    transition: 0.2s;
+    margin-right: 10px;
+}
+
+
+.container .table .btn {
+    display: flex;
+    margin: 30px 10px 10px 10px;
+    justify-content: space-evenly;
+}
+
+.container .table .btn button {
+    padding: 5px 35px;
+    background-color: #FBFBFB;
+    font-size: 12px;
+    font-weight: 600;
+    text-align: center;
+    color: #FF9921;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
