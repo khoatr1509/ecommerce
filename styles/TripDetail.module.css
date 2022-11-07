@@ -1,0 +1,74 @@
+.container .banner {
+    width: 100%;
+    object-fit: fill;
+    height: 40vh;
+    border-radius: 4px;
+}
+
+.container .content {
+    padding: 40px 80px;
+}
+
+.container .content  .details {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.container .content  .details .info{
+    width: 50%;
+}
+
+.container .content  .details .info h1 {
+    margin-bottom: 20px;
+}
+
+.container .content  .details .infoList .tag {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    padding: 0;
+}
+.container .content  .details .infoList .tag .icon {
+    font-size: 40px;
+    padding-right: 20px;
+}
+
+.container .content  .details .infoList .tag p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.container .content  .details button {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #F4F4F4;
+    max-height: 50px;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+    font-weight: 700;
+    color: #FF9921;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+.container .content  .details button .icon {
+    padding-right: 8px;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.container .content h2 {
+    color: #09ADBB;
+    text-decoration: underline;
+    margin-bottom: 15px;
+}
+.container .content p {
+    color: #333333;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+
+

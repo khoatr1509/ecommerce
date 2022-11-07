@@ -14,7 +14,8 @@ function Triplist({ trips }) {
             {
                 arr.map((trip) => (
                     // TODO: CODE STYLING HERE
-                    <Link key={trip.id} className={classes.table}
+                    <Link
+                        key={trip.id} className={classes.table}
                         href={`/trip/${trip.id}`}
                     >
                         <img className={classes.logo} src={trip.img_url}></img>
