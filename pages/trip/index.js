@@ -1,11 +1,12 @@
 import React from 'react'
 import data from '../../data/data';
 import classes from '../../styles/TripList.module.css'
+import Link from 'next/link'
 
-console.log({ data });
+// console.log({ data });
 
 let [...arr] = data;
-console.log(arr[0])
+// console.log(arr[0])
 
 function Triplist({ trips }) {
     return (
@@ -13,20 +14,22 @@ function Triplist({ trips }) {
             {
                 arr.map((trip) => (
                     // TODO: CODE STYLING HERE
-                    <div key={trip.id} className={classes.table}>
+                    <Link key={trip.id} className={classes.table}
+                        href={`/trip/${trip.id}`}
+                    >
                         <img className={classes.logo} src={trip.img_url}></img>
                         <h1 className={classes.tourName}>{trip.tour_name}</h1>
                         <p className={classes.tourDescription}>{trip.description}</p>
                         <div className={classes.cate}>
-                            <div className={classes.tag}>$12.11</div>
-                            <div className={classes.tag}>12k reviews</div>  
-                            <div className={classes.tag}>2 hours</div>
+                            <div className={classes.tag}>{trip.price.slice(0, 10)}</div>
+                            <div className={classes.tag}>{trip.recommend_percent}</div>
+                            <div className={classes.tag}>{trip.duration}</div>
                         </div>
                         <div className={classes.btn}>
                             <button>Add to plan</button>
                             <button>Details</button>
                         </div>
-                    </div>
+                    </Link>
                 ))
             }
         </div>
