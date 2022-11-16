@@ -1,23 +1,45 @@
-import React from 'react'
+import { React, useState } from 'react'
 import data from '../../data/data';
 import classes from '../../styles/TripList.module.css'
 import Link from 'next/link'
-
+import Checkout from '../checkout/index.js'
 // console.log({ data });
 
 let [...arr] = data;
 // console.log(arr[0])
 
+const object = {
+    key1: 'value1',
+    key2: 'value2'
+};
+
 function Triplist({ trips }) {
+    const [idList, setidList] = useState([]);
+    const [tripNo, setTripNo] = useState([]);
+
     return (
-        <div className={classes.container}>
+        <div className='w-full h-auto'>
+            <div>
+                Carts: {tripNo.length}
+                {/* {console.log()} */}
+            </div>
+            <Link
+                href={{
+                    pathname: '/checkout', query: {
+                        object: JSON.stringify([1, 2])
+                    }
+                }}
+            > Here
+                {console.log(tripNo)}</Link>
+            <div className={classes.container}>
             {
                 arr.map((trip) => (
                     // TODO: CODE STYLING HERE
-                    <Link
+                    <div
                         key={trip.id} className={classes.table}
                         href={`/trip/${trip.id}`}
                     >
+                        <div>
                         <img className={classes.logo} src={trip.img_url}></img>
                         <h1 className={classes.tourName}>{trip.tour_name}</h1>
                         <p className={classes.tourDescription}>{trip.description}</p>
@@ -26,13 +48,22 @@ function Triplist({ trips }) {
                             <div className={classes.tag}>{trip.recommend_percent}</div>
                             <div className={classes.tag}>{trip.duration}</div>
                         </div>
+                        </div>
                         <div className={classes.btn}>
-                            <button>Add to plan</button>
+                            <button onClick={() => {
+                                setTripNo((tripNo) => [...tripNo, trip.id]);
+                                setidList([...idList, trip.id]);
+                                // setTripNo({...tripNo, id: {id: trip.id } })
+                            }}>
+                                {idList.includes(trip.id) ? `Added` : `Add to trip`}
+                            </button>
                             <button>Details</button>
                         </div>
-                    </Link>
+                    </div>
                 ))
             }
+            </div>  
+
         </div>
     )
 }
