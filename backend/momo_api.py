@@ -5,7 +5,7 @@ import hmac
 import hashlib
 
 class momo_api():
-    def __init__(self):
+    def __init__(self, amount = "50000"):
         # parameters send to MoMo get get payUrl
         self.endpoint = "https://test-payment.momo.vn/v2/gateway/api/create"
         self.accessKey = "F8BBA842ECF85"
@@ -14,7 +14,7 @@ class momo_api():
         self.partnerCode = "MOMO"
         self.redirectUrl = "https://webhook.site/b3088a6a-2d17-4f8d-a383-71389a6c600b"
         self.ipnUrl = "https://webhook.site/b3088a6a-2d17-4f8d-a383-71389a6c600b"
-        self.amount = "50000"
+        self.amount = amount
         self.orderId = str(uuid.uuid4())
         self.requestId = str(uuid.uuid4())
         self.extraData = ""  # pass empty value or Encode base64 JsonString
