@@ -19,7 +19,7 @@ async function getServerSideProps() {
 
     // By returning { props: { posts } }, the Blog component
     // will receive `posts` as a prop at build time
-    console.log(trips)
+    // console.log(trips)
     // return {
     //     props: {
     //         trips,

@@ -1,10 +1,10 @@
 import React from 'react'
 import data from '../../data/data';
 
-console.log({ data });
+// console.log({ data });
 
 let [...arr] = data;
-console.log(arr[0])
+// console.log(arr[0])
 
 function Triplist({ trips }) {
     return (

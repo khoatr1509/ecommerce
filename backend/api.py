@@ -12,8 +12,9 @@ app = Flask(__name__)
 @app.route('/momo', methods=['GET'])
 def momo():
     amount = request.args.get('amount')
+    print(amount)
     res = momo_api(amount).payment_gen()['payUrl']
-    return res
+    return jsonify(res)
 
 # class Momo(Resource):
 #     def post(self, amount):
