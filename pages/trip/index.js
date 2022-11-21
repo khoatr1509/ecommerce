@@ -21,12 +21,11 @@ function Triplist({ trips }) {
         <div className='w-full h-auto'>
             <div>
                 Carts: {tripNo.length}
-                {/* {console.log()} */}
             </div>
             <Link
                 href={{
                     pathname: '/checkout', query: {
-                        object: JSON.stringify([1, 2])
+                        object: JSON.stringify(tripNo)
                     }
                 }}
             > Here

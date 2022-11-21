@@ -1,36 +1,38 @@
 import {MdOutlinePlace} from 'react-icons/md'
 import { withRouter } from 'next/router';
-// export const Checkout = ({ props }) => {
-//     return (
-//         props.map(i => {
-//             return <div>i</div>
-//         })
-//     )
-// }
+import { useState } from 'react';
+import data from '../../data/data';
+
+console.log(data[0]);
 
 const Checkout = (a) => {
     let l = JSON.parse(a.a)
+    console.log(l)
+    let checkout_list = l.reduce((acc, curr) => [...acc, data[curr]], [])
+    let [price, setPrice] = useState('0');
+
+    let total_price = checkout_list.reduce((acc, curr) => acc + parseInt(curr.price.split(' ')[1].slice(1)), 0);
     // const object = JSON.parse(query.object);
     return (
         <div className='container mx-auto p-5 relative'>
             <h1 className='text-center font-bold text-4xl mb-5'>Checkout</h1>
-            <h2 className='text-center font-normal mb-5 text-4xl'>Total:</h2>
+            <h2 className='text-center font-normal mb-5 text-4xl'>Total: ~ {total_price * 25000} vnd</h2>
             <div className='flex flex-col mb-32 mt-16 items-center justify-center'>
             {
-                l.map(i => {
+                    checkout_list.map(i => {
                     return (
                         //TODO:
                         <div className='flex h-150px w-500px border-b border-black mb-6 p-1 mx-0'>
-                            <img src="https://cdn.haitrieu.com/wp-content/uploads/2021/09/Logo-DH-Bach-Khoa-HCMUT.png" alt="" className='w-32 h-32 rounded mr-12'/>
+                            <img src={i.img_url} alt="" className='w-32 h-32 rounded mr-12' />
                             <div>
-                                <h1 className='font-bold text-2xl'>Mì tôm</h1>
+                                <h1 className='font-bold text-2xl'>{i.tour_name.slice(0, 15)}</h1>
                                 <ul className='list-none'>
-                                    <li className='flex justify-center items-center'>
+                                    <li className='flex justify-start items-center'>
                                         <MdOutlinePlace className='mr-1'/>
-                                        <p className='text-base text-[#333333]'>Ở nơi nào đó, Ho Chi Minh, Vietnam.</p>
+                                        <p className='text-base text-[#333333]'>{i.description.slice(0, 15)}</p>
                                     </li>
                                     <li>
-                                        <p className='text-base text-[#333333]'>Price: 20.000 vnd</p>
+                                        <p className='text-base text-[#333333]'>Price: {i.price}</p>
                                     </li>
                                 </ul>
                             </div>
@@ -46,7 +48,7 @@ const Checkout = (a) => {
 export default withRouter(Checkout);
 
 export async function getServerSideProps(context) {
-    console.log(context.query)
+    // console.log(context.query)
     let a = context.query.object;
     return {
         props: { a }, // will be passed to the page component as props
