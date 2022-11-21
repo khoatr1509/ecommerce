@@ -19,17 +19,18 @@ function Triplist({ trips }) {
 
     return (
         <div className='w-full h-auto'>
-            <div>
+            <div className="text font-mono text-blue-900 w-fit m-auto bg-yellow-200 p-2 rounded-xl">
                 Carts: {tripNo.length}
+                <Link
+                    href={{
+                        pathname: '/checkout', query: {
+                            object: JSON.stringify(tripNo)
+                        }
+                    }}
+                    className="text-center font-semibold text-blue-900 w-fit m-auto"
+                > Checkout
+                    {console.log(tripNo)}</Link>
             </div>
-            <Link
-                href={{
-                    pathname: '/checkout', query: {
-                        object: JSON.stringify(tripNo)
-                    }
-                }}
-            > Here
-                {console.log(tripNo)}</Link>
             <div className={classes.container}>
             {
                 arr.map((trip) => (
@@ -40,7 +41,7 @@ function Triplist({ trips }) {
                     >
                         <div>
                         <img className={classes.logo} src={trip.img_url}></img>
-                        <h1 className={classes.tourName}>{trip.tour_name}</h1>
+                            <h1 className={classes.tourName}>{trip.tour_name.slice(0, 40)}</h1>
                         <p className={classes.tourDescription}>{trip.description}</p>
                         <div className={classes.cate}>
                             <div className={classes.tag}>{trip.price.slice(0, 10)}</div>
@@ -62,7 +63,6 @@ function Triplist({ trips }) {
                 ))
             }
             </div>  
-
         </div>
     )
 }

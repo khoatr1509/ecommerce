@@ -1,18 +1,26 @@
 import {MdOutlinePlace} from 'react-icons/md'
 import { withRouter } from 'next/router';
-import { useState } from 'react';
+import { useState, useEffect, use } from 'react';
+import Link from 'next/link';
 import data from '../../data/data';
 
-console.log(data[0]);
-
-const Checkout = (a) => {
-    let l = JSON.parse(a.a)
-    console.log(l)
-    let checkout_list = l.reduce((acc, curr) => [...acc, data[curr]], [])
+const Checkout = (t) => {
+    let trip_list = JSON.parse(t.a)
+    let checkout_list = trip_list.reduce((acc, curr) => [...acc, data[curr]], [])
     let [price, setPrice] = useState('0');
 
     let total_price = checkout_list.reduce((acc, curr) => acc + parseInt(curr.price.split(' ')[1].slice(1)), 0);
-    // const object = JSON.parse(query.object);
+
+    const [url, setUrl] = useState('');
+    useEffect(() => {
+        const getUrl = async (amount) => {
+            const res = await fetch(`http://127.0.0.1:5000/momo?amount=${amount}`);
+            const data = await res.json();
+            return data
+        }
+
+        getUrl(total_price * 1000).then(res => { setUrl(res.payUrl) });
+    }, [price])
     return (
         <div className='container mx-auto p-5 relative'>
             <h1 className='text-center font-bold text-4xl mb-5'>Checkout</h1>
@@ -41,7 +49,7 @@ const Checkout = (a) => {
                 })
             }
             </div>
-            <button className='bg-[#EAF7FF] text-[#3E3E3E] font-bold py-2 px-8 rounded absolute left-[60%] '>Checkout</button>
+            <Link href={url} className='bg-[#EAF7FF] text-[#3E3E3E] font-bold py-2 px-8 rounded absolute left-[60%] '>Checkout</Link>
         </div>
     );
 }
