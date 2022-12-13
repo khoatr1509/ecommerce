@@ -80,17 +80,18 @@ function classNames(...classes) {
 
 export default function Example() {
     return (
-        <Popover className="relative bg-white">
+        <Popover className="relative bg-white w-full">
             <div className="mx-auto max-w-7xl px-4 sm:px-6">
                 <div className="flex items-center justify-between border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10">
                     <div className="flex justify-start lg:w-0 lg:flex-1">
-                        <a href="#">
-                            <span className="sr-only">Your Company</span>
-                            <img
+                        <a href="/">
+                            <span className="sr-only">Hello</span>
+                            {/* <img
                                 className="h-8 w-auto sm:h-10"
-                                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                                src="https://ibb.co/B3mgxVn"
                                 alt=""
-                            />
+                            /> */}
+                            <img className=" h-20 w-auto" src="https://i.ibb.co/54d5yWK/download-1.png" width="120" alt="download-1" border="0"></img>
                         </a>
                     </div>
                     <div className="-my-2 -mr-2 md:hidden">
@@ -109,7 +110,7 @@ export default function Example() {
                                             'group inline-flex items-center rounded-md bg-white text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'
                                         )}
                                     >
-                                        <span>Solutions</span>
+                                        <span>Explore</span>
                                         <ChevronDownIcon
                                             className={classNames(
                                                 open ? 'text-gray-600' : 'text-gray-400',
@@ -166,10 +167,10 @@ export default function Example() {
                         </Popover>
 
                         <a href="#" className="text-base font-medium text-gray-500 hover:text-gray-900">
-                            Pricing
+                            Travel
                         </a>
                         <a href="#" className="text-base font-medium text-gray-500 hover:text-gray-900">
-                            Docs
+                            About Us
                         </a>
 
                         <Popover className="relative">
@@ -224,7 +225,7 @@ export default function Example() {
                             )}
                         </Popover>
                     </Popover.Group>
-                    <div className="hidden items-center justify-end md:flex md:flex-1 lg:w-0">
+                    {/* <div className="hidden items-center justify-end md:flex md:flex-1 lg:w-0">
                         <a href="#" className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">
                             Sign in
                         </a>
@@ -234,7 +235,7 @@ export default function Example() {
                         >
                             Sign up
                         </a>
-                    </div>
+                    </div> */}
                 </div>
             </div>
 
